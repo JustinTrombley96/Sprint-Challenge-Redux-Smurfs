@@ -18,14 +18,16 @@ const initialState = {
 	error          : null,
 };
 
-export const smurfsReducer = (state = initialState, action) => {
+const smurfsReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case FETCH_SMURF_START:
 			return { ...state, fetchingSmurfs: true, error: null };
 		case FETCH_SMURF_SUCCESS:
-			return { ...state, fetchingSmurfs: false, smurfs: action.payload };
+			return { ...state, fetchingSmurfs: false, smurfs: [ ...action.payload ] };
 		case FETCH_SMURF_ERROR:
 			return { ...state, fetchingSmurfs: false, error: 'BAM! BAM! You broke me :( ' };
+		case ADDED_SMURF_SUCCESS:
+			return { ...state, smurfs: [ ...action.payload ] };
 		default:
 			return state;
 	}
