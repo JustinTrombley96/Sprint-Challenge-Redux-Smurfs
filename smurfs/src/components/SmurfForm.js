@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { addSmurf } from '../actions';
 
 export class SmurfForm extends Component {
 	constructor(props) {
@@ -10,9 +11,11 @@ export class SmurfForm extends Component {
 		};
 	}
 
-	addSmurf = event => {
+	handleAddSmurf = event => {
 		event.preventDefault();
-		this.props.addSmurf(this.state);
+
+		const smurf = this.state;
+		this.props.addSmurf(smurf);
 
 		this.setState({
 			name   : '',
@@ -29,7 +32,7 @@ export class SmurfForm extends Component {
 	render() {
 		return (
 			<div className='SmurfForm'>
-				<form onSubmit={this.addSmurf}>
+				<form onSubmit={this.handleAddSmurf}>
 					<input onChange={this.handleInputChange} placeholder='name' value={this.state.name} name='name' />
 					<input onChange={this.handleInputChange} placeholder='age' value={this.state.age} name='age' />
 					<input

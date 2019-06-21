@@ -12,26 +12,24 @@ export const ADD_SMURF_START = 'ADD_SMURF_START';
 export const ADDED_SMURF_SUCCESS = 'ADDED_SMURF_SUCCESS';
 export const ADDED_SMURF_ERROR = 'ADDED_SMURF_ERROR';
 
-let nextSmurfId = 0;
-
-export const addSmurf = () => dispatch => {
-	dispatch({ type: ADD_SMURF_START });
-	axios
-		.get('localhost:3333/smurfs')
-		.then(res => {
-			dispatch({ type: ADDED_SMURF_SUCCESS, payload: res.data });
-		})
-		.catch(err => dispatch({ type: ADDED_SMURF_ERROR, payload: err }));
-};
-
 export const getSmurfs = () => dispatch => {
 	dispatch({ type: FETCH_SMURF_START });
 	axios
-		.get('localhost:3333/smurfs')
+		.get('http://localhost:3333/smurfs')
 		.then(res => {
 			dispatch({ type: FETCH_SMURF_SUCCESS, payload: res.data });
 		})
 		.catch(err => dispatch({ type: FETCH_SMURF_ERROR, payload: err }));
+};
+
+export const addSmurf = newSmurf => dispatch => {
+	dispatch({ type: ADD_SMURF_START });
+	axios
+		.post('http://localhost:3333/smurfs', newSmurf)
+		.then(res => {
+			dispatch({ type: ADDED_SMURF_SUCCESS, payload: res.data });
+		})
+		.catch(err => dispatch({ type: ADDED_SMURF_ERROR, payload: err }));
 };
 
 /*

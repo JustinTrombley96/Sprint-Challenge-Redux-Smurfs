@@ -22,17 +22,17 @@ export class App extends Component {
 		}
 		return (
 			<div>
-				<SmurfForm />
+				<SmurfForm addSmurf= {this.props.addSmurf} />
 				<Smurfs smurfs={this.props.smurfs} />
 			</div>
 		);
 	}
 }
 const mapStateToProps = state => ({
-	smurfs         : state.smurfsReducer.smurfs,
-	fetchingSmurfs : state.smurfsReducer.fetchingSmurfs,
-	addingSmurf    : state.smurfsReducer.addingSmurf,
-	error          : state.smurfsReducer.error,
+	smurfs         : state.smurfs,
+	fetchingSmurfs : state.fetchingSmurfs,
+	addingSmurf    : state.addingSmurf,
+	error          : state.error,
 });
 
 export default connect(mapStateToProps, {
