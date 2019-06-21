@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addSmurf } from '../actions';
 
-export class SmurfForm extends Component {
+class SmurfForm extends Component {
 	state = {
 		name   : '',
 		age    : '',
