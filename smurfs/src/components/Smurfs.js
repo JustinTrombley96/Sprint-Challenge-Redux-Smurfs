@@ -1,7 +1,7 @@
 import React from 'react';
 import Smurf from './Smurf';
 
-const Smurfs = props => {
+export const Smurfs = props => {
 	return (
 		<ul>
 			{props.smurfs.map(smurf => {

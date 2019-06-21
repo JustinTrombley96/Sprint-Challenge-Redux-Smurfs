@@ -11,7 +11,7 @@ const initialState = {
 	error          : null,
 };
 
-const smurfsReducer = (state = initialState, action) => {
+export const smurfsReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case FETCH_SMURF_START:
 			return { ...state, fetchingSmurfs: true, error: null };
@@ -24,7 +24,6 @@ const smurfsReducer = (state = initialState, action) => {
 	}
 };
 
-export default smurfsReducer;
 
 /*
  Your initial/default state for this project could *Although does not have to* look a lot like this
