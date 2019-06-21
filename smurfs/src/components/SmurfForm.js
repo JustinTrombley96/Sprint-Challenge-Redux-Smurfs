@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { addSmurf } from '../actions';
 import { connect } from 'react-redux';
+import { addSmurf } from '../actions';
 
 export class SmurfForm extends Component {
 	state = {
