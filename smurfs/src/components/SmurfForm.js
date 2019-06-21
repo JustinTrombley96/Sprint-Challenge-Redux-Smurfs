@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { addSmurf } from '../actions';
+import { connect } from 'react-redux';
 
 export class SmurfForm extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			name   : '',
-			age    : '',
-			height : '',
-		};
-	}
+	state = {
+		name   : '',
+		age    : '',
+		height : '',
+	};
+
+	handleInputChange = e => {
+		this.setState({ [e.target.name]: e.target.value });
+	};
 
 	handleAddSmurf = event => {
 		event.preventDefault();
@@ -22,11 +24,6 @@ export class SmurfForm extends Component {
 			age    : '',
 			height : '',
 		});
-		document.location.reload();
-	};
-
-	handleInputChange = e => {
-		this.setState({ [e.target.name]: e.target.value });
 	};
 
 	render() {
@@ -48,4 +45,8 @@ export class SmurfForm extends Component {
 	}
 }
 
-export default SmurfForm;
+const mapStateToProps = state => ({
+	smurfs : state.smurfs,
+});
+
+export default connect(mapStateToProps, { addSmurf })(SmurfForm);

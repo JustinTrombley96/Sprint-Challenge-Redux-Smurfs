@@ -5,36 +5,19 @@
  `How do I ensure that my component links the state to props?`
  */
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import './App.css';
-import  { Smurfs }  from './Smurfs';
-import { getSmurfs } from '../actions/index';
+import { Smurfs } from './Smurfs';
 import { SmurfForm } from './SmurfForm';
 
 export class App extends Component {
-	componentDidMount() {
-		this.props.getSmurfs();
-	}
-
 	render() {
-		if (this.props.fetchingSmurfs) {
-			return <h1>We are finding your Smurfs!</h1>;
-		}
 		return (
 			<div>
-				<SmurfForm addSmurf= {this.props.addSmurf} />
-				<Smurfs smurfs={this.props.smurfs} />
+				<SmurfForm />
+				<Smurfs />
 			</div>
 		);
 	}
 }
-const mapStateToProps = state => ({
-	smurfs         : state.smurfs,
-	fetchingSmurfs : state.fetchingSmurfs,
-	addingSmurf    : state.addingSmurf,
-	error          : state.error,
-});
 
-export default connect(mapStateToProps, {
-	getSmurfs,
-})(App);
+export default App;
