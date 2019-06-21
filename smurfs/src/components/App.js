@@ -7,7 +7,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
-import { Smurfs } from './Smurfs';
+import  { Smurfs }  from './Smurfs';
 import { getSmurfs } from '../actions/index';
 import { SmurfForm } from './SmurfForm';
 

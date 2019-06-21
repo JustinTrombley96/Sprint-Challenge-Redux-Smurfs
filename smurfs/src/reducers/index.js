@@ -2,7 +2,14 @@
   Be sure to import in all of the action types from `../actions`
 */
 
-import { FETCH_SMURF_START, FETCH_SMURF_SUCCESS, FETCH_SMURF_ERROR } from '../actions';
+import {
+	FETCH_SMURF_START,
+	FETCH_SMURF_SUCCESS,
+	FETCH_SMURF_ERROR,
+	ADD_SMURF_START,
+	ADDED_SMURF_SUCCESS,
+	ADDED_SMURF_ERROR,
+} from '../actions';
 
 const initialState = {
 	smurfs         : [],
@@ -24,6 +31,7 @@ export const smurfsReducer = (state = initialState, action) => {
 	}
 };
 
+export default smurfsReducer;
 
 /*
  Your initial/default state for this project could *Although does not have to* look a lot like this
